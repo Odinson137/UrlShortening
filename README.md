@@ -11,7 +11,7 @@
 
 
 **Интерфейс**
-![image](https://github.com/Odinson137/UrlShortening/assets/87028237/f1b23ae3-68e2-4a61-8a36-51bdb62d03d8)
+![image](https://github.com/Odinson137/UrlShortening/assets/87028237/f2f73243-01cf-481a-99a8-5ac9b2ccdc8b)
 
 ![image](https://github.com/Odinson137/UrlShortening/assets/87028237/f0272cc8-30e4-4d08-932b-422f162390b3)
 
