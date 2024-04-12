@@ -66,6 +66,12 @@ public class HomeController : Controller
     {
         _logger.LogInformation("Post creating page");
 
+        if (!ModelState.IsValid)
+        {
+            _logger.LogInformation("Model is not valid");
+            return View(urlDto);
+        }
+        
         var url = new Url
         {
             Title = urlDto.Title,
@@ -103,6 +109,12 @@ public class HomeController : Controller
     {
         _logger.LogInformation("Post edit page");
 
+        if (!ModelState.IsValid)
+        {
+            _logger.LogInformation("Model is not valid");
+            return View(urlDto);
+        }
+        
         var url = await _urlRepository.GetUrlByIdAsync(urlDto.Id);
 
         if (url == null)
