@@ -1,0 +1,21 @@
+@model UrlShortening.DTO.CreateUrlDto
+
+@{
+    ViewBag.Title = "title";
+    Layout = "_Layout";
+}
+
+<div class="container mt-5">
+    <h1>Create URL</h1>
+    <form asp-action="Create" method="post">
+        <div class="form-group">
+            <label class="control-label">Title:</label>
+            <input asp-for="Title" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label class="control-label">Long URL:</label>
+            <input asp-for="LongUrl" class="form-control" />
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>

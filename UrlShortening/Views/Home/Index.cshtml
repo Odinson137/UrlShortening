@@ -1,0 +1,64 @@
+﻿@model ICollection<UrlShortening.DTO.UrlDto>
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Все ваши сохранённые ссылки</h1>
+    @if (Model.Count == 0)
+    {
+        <h2 class="display-4 alert-danger">Нет данных</h2>
+    }
+    else
+    {
+        <div class="container mt-5">
+            @foreach (var url in Model)
+            {
+                <div class="mb-5">
+                    <h1>@url.Title</h1>
+                    <p>Ссылка создана: @url.CreatedDateTime</p>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">Long URL</h5>
+                                    <a class="card-text" href="@url.LongUrl">@url.LongUrl</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">Short URL</h5>
+                                    <a class="card-text" href="@url.ShortUrl">@url.ShortUrl</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-3">
+                        <p>Click Number: @url.ClickNumber</p>
+                        <small>This indicates the number of times the URL has been clicked.</small>
+                    </div>
+                      <div class="row">
+                          <div class="col-md-6">
+                              <div class="mt-3">
+                                  <a href="@Url.Action("Edit", "Home", new { urlId = url.Id })" class="btn btn-primary">Edit</a>
+                              </div>
+                          </div>
+                          <div class="col-md-6">
+                              <div class="mt-3">
+                                  <form asp-action="Delete" method="post">
+                                      <input type="hidden" name="urlId" value="@url.Id"/>
+                                      <button type="submit" class="btn btn-danger">Delete</button>
+                                  </form>
+                              </div>
+                          </div>
+                      </div>
+                </div>
+
+            }
+        </div>
+
+    }
+
+</div>
